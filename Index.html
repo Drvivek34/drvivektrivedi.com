@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Vivek Trivedi - Physician & AI Enthusiast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --background: 210 33% 96%;
+            --foreground: 30 10% 8%;
+            --card: 0 0% 100%;
+            --card-foreground: 30 10% 8%;
+            --primary: 210 29% 31%;
+            --primary-foreground: 0 0% 98%;
+            --secondary: 210 22% 83%;
+            --secondary-foreground: 210 29% 31%;
+            --accent: 180 100% 17%;
+            --accent-foreground: 0 0% 98%;
+            --border: 210 22% 83%;
+            --radius: 0.5rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header & Navigation */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: hsl(var(--primary));
+            text-decoration: none;
+        }
+        
+        .navbar-menu {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .navbar-link {
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-link:hover {
+            color: hsl(var(--primary));
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, rgb(71, 97, 120) 0%, rgb(111, 147, 179) 100%);
+            color: white;
+        }
+        
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 3rem;
+            padding: 0 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: rgb(0, 128, 128);
+            color: white;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            background-color: rgb(0, 100, 100);
+            transform: translateY(-2px);
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: hsl(var(--primary));
+        }
+        
+        /* What I Do Section */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            color: hsl(var(--primary));
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: hsl(var(--primary));
+        }
+        
+        .card p {
+            color: hsl(var(--foreground) / 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Skill Bars */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: hsl(var(--primary));
+        }
+        
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: hsl(var(--secondary));
+            border-radius: 4px;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: hsl(var(--primary));
+            border-radius: 4px;
+        }
+        
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            width: 100px;
+            text-align: right;
+            top: 0;
+            left: 0;
+            font-weight: 600;
+            color: hsl(var(--primary));
+        }
+        
+        .timeline-content {
+            margin-left: 120px;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: hsl(var(--primary));
+        }
+        
+        .timeline-content p {
+            color: hsl(var(--foreground) / 0.7);
+        }
+        
+        /* Detail Sections (Hidden by Default) */
+        .detail-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+        
+        .detail-section.active {
+            display: block;
+        }
+        
+        .detail-container {
+            background-color: white;
+            border-radius: 0.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+        
+        .detail-title {
+            font-size: 1.75rem;
+            color: hsl(var(--primary));
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .close-btn {
+            background-color: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: hsl(var(--foreground) / 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            color: hsl(var(--foreground));
+        }
+        
+        .detail-content {
+            line-height: 1.7;
+        }
+        
+        .detail-section h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem;
+            color: hsl(var(--primary));
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .detail-item {
+            background-color: hsl(var(--background));
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .detail-item h4 {
+            margin-bottom: 0.5rem;
+            color: hsl(var(--primary));
+        }
+        
+        .detail-item p {
+            color: hsl(var(--foreground) / 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid hsl(var(--border));
+            border-radius: 0.25rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: hsl(var(--primary));
+            box-shadow: 0 0 0 2px hsla(var(--primary) / 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 2.5rem;
+            padding: 0 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            border-radius: 0.25rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: hsl(var(--primary) / 0.9);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 2rem 0;
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: hsla(var(--primary-foreground) / 0.1);
+            border-radius: 50%;
+            color: hsl(var(--primary-foreground));
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: hsla(var(--primary-foreground) / 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Certificate Request Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid hsl(var(--border));
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: hsl(var(--primary));
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: hsl(var(--foreground) / 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            color: hsl(var(--foreground));
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-date {
+                width: auto;
+                position: static;
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+            
+            .timeline-content {
+                margin-left: 50px;
+            }
+            
+            .timeline-dot {
+                left: 31px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="navbar-brand">Dr. Vivek Trivedi</a>
+            <div class="navbar-menu">
+                <a href="#what-i-do" class="navbar-link">What I Do</a>
+                <a href="#skills" class="navbar-link">Skills</a>
+                <a href="#education" class="navbar-link">Education</a>
+                <a href="#contact" class="navbar-link">Contact</a>
+                <a href="#" onclick="openCertificateModal('Certificate')" class="navbar-link">Certificate Request</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://imagesx.practo.com/providers/dr-vivek-trivedi-general-physician-ahmedabad-dead12b7-0d5b-4e16-bc1e-724aa92409b7.jpg?i_type=t_100x100-4x" alt="Dr. Vivek Trivedi" class="profile-img">
+        <h1>Where Medicine Meets Machine Learning: Healing Today, Innovating Tomorrow</h1>
+        <p>Hi, I'm Dr. Vivek Trivedi (M.D. Anatomy, M.B.B.S.), bridging the gap between medical science and artificial intelligence to revolutionize healthcare.</p>
+        <a href="#what-i-do" class="cta-btn">Explore What I Do</a>
+    </section>
+
+    <!-- What I Do Section -->
+    <section id="what-i-do" class="section">
+        <div class="container">
+            <h2 class="section-title">What I Do</h2>
+            <div class="cards-grid">
+                <!-- Physician Card -->
+                <div class="card" onclick="openDetailSection('physician')">
+                    <i class="fas fa-stethoscope card-icon"></i>
+                    <h3>Physician</h3>
+                    <p>Improving patients' lives via online consultations with comprehensive, tailored care.</p>
+                </div>
+
+                <!-- AI & ML Enthusiast Card -->
+                <div class="card" onclick="openDetailSection('ai-ml')">
+                    <i class="fas fa-brain card-icon"></i>
+                    <h3>AI & ML Enthusiast</h3>
+                    <p>Transforming healthcare with AI, creating unprecedented opportunities for patient outcomes.</p>
+                </div>
+
+                <!-- Entrepreneur Card -->
+                <div class="card" onclick="openDetailSection('entrepreneur')">
+                    <i class="fas fa-briefcase card-icon"></i>
+                    <h3>Entrepreneur</h3>
+                    <p>Seeing possibilities where others see problems, innovating in digital solutions.</p>
+                </div>
+
+                <!-- Philosopher Card -->
+                <div class="card" onclick="openDetailSection('philosopher')">
+                    <i class="fas fa-lightbulb card-icon"></i>
+                    <h3>Philosopher</h3>
+                    <p>Living life fully, integrating philosophy into everyday actions.</p>
+                </div>
+
+                <!-- Writer Card -->
+                <div class="card" onclick="openDetailSection('writer')">
+                    <i class="fas fa-pen-fancy card-icon"></i>
+                    <h3>Writer</h3>
+                    <p>Sharing insights on medicine, technology, and personal growth through words.</p>
+                </div>
+
+                <!-- Freelancer Card -->
+                <div class="card" onclick="openDetailSection('freelancer')">
+                    <i class="fas fa-laptop card-icon"></i>
+                    <h3>Freelancer</h3>
+                    <p>Combining medical expertise with tech skills to offer specialized services.</p>
+                </div>
+
+                <!-- Anatomist Card -->
+                <div class="card" onclick="openDetailSection('anatomist')">
+                    <i class="fas fa-user-md card-icon"></i>
+                    <h3>Anatomist</h3>
+                    <p>Driving research and teaching with a deep passion for understanding the human body.</p>
+                </div>
+
+                <!-- Pharmacovigilance Card -->
+                <div class="card" onclick="openDetailSection('pharmacovigilance')">
+                    <i class="fas fa-pills card-icon"></i>
+                    <h3>Pharmacovigilance</h3>
+                    <p>Ensuring medication safety for patient wellbeing, working to provide effective and safe treatments.</p>
+                </div>
+
+                <!-- Health Educator Card -->
+                <div class="card" onclick="openDetailSection('health-educator')">
+                    <i class="fas fa-heartbeat card-icon"></i>
+                    <h3>Health Educator</h3>
+                    <p>Empowering individuals with health knowledge for informed choices and true wellness.</p>
+                </div>
+
+                <!-- Youtuber Card -->
+                <div class="card" onclick="openDetailSection('youtuber')">
+                    <i class="fab fa-youtube card-icon"></i>
+                    <h3>Youtuber</h3>
+                    <p>Creating content that educates, entertains, and inspires, influenced by authentic storytelling.</p>
+                </div>
+
+                <!-- My Goals Card -->
+                <div class="card" onclick="openDetailSection('goals')">
+                    <i class="fas fa-flag card-icon"></i>
+                    <h3>My Goals</h3>
+                    <p>Striving towards 100 life goals with purpose and direction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background-color: hsl(var(--background) / 0.5);">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Cadaver Dissection</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Embalming</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Microscopy</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Ventilator Management</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Administrative Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Academic Scheduling</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Student Evaluation</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Record-keeping</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Research Planning</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2022-2025</div>
+                    <div class="timeline-content">
+                        <h3>MD Anatomy</h3>
+                        <p>Medical College Baroda, Vadodara, Gujarat - Specializing in anatomical studies with a focus on research.</p>
+                        <p><strong>Dissertation:</strong> "Study of Dermatoglyphics in Coronary Artery Disease Patients"</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2019</div>
+                    <div class="timeline-content">
+                        <h3>MBBS</h3>
+                        <p>Weifang Medical University - Completed Bachelor of Medicine and Bachelor of Surgery.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Ongoing</div>
+                    <div class="timeline-content">
+                        <h3>Diploma in AI & ML</h3>
+                        <p>Indian Institute of Technology, Mandi - Learning cutting-edge AI and ML techniques to apply in healthcare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background-color: hsl(var(--background) / 0.5);">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Contact</label>
+                    <select id="reason" class="form-control" required>
+                        <option value="">Select a reason</option>
+                        <option value="Physician">Medical Consultation</option>
+                        <option value="AI & ML">AI & ML Projects</option>
+                        <option value="Entrepreneur">Business Opportunities</option>
+                        <option value="Philosopher">Philosophical Discussions</option>
+                        <option value="Writer">Writing Collaborations</option>
+                        <option value="Freelancer">Freelance Work</option>
+                        <option value="Anatomist">Anatomy Research</option>
+                        <option value="Pharmacovigilance">Pharmacovigilance</option>
+                        <option value="Health Educator">Health Education</option>
+                        <option value="Youtuber">YouTube Collaboration</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/vivek-trivedi-md-53aa87a" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://github.com/" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 Dr. Vivek Trivedi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Detail Sections (Hidden by Default) -->
+    <!-- Physician Section -->
+    <section id="physician" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-stethoscope"></i> Physician</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>MCI-certified physician and Gujarat Medical Council Registered professional with expertise in Infectious Diseases, Pulmonology, and Anatomy. Actively working to improve patients' lives via online consultations.</p>
+                
+                <h3>Medical Registration</h3>
+                <p>Medical Council Registration No.: G-67648 (27/09/2019)</p>
+                
+                <h3>Experience Timeline</h3>
+                <ul>
+                    <li><strong>Junior Resident (Anatomy)</strong> - Medical College Baroda, Vadodara (Feb 2022–Present)</li>
+                    <li><strong>Medical Officer</strong> - Sterling Hospital, Ahmedabad (Dec 2020–March 2022)</li>
+                    <li><strong>RMO</strong> - Dhanvantri Covid Hospital, Ahmedabad (Apr 2020–Sep 2021)</li>
+                    <li><strong>Medical Officer</strong> - PHC Dharapur (Mar 2020–Dec 2020)</li>
+                    <li><strong>Junior Resident (Anesthesiology)</strong> - PMCH Udaipur (Jul 2019–Nov 2019)</li>
+                </ul>
+                
+                <h3>Online Consultation</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Lybrate</h4>
+                        <p>Rating: 5.0 ★★★★★</p>
+                        <a href="#" target="_blank">View Profile</a>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Practo</h4>
+                        <p>Rating: 4.9 ★★★★★</p>
+                        <a href="#" target="_blank">View Profile</a>
+                    </div>
+                </div>
+                
+                <h3>Book a Consultation</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <a href="https://wa.me/919979453372" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Consultation
+                    </a>
+                    <a href="mailto:Consult@drvivektrivedi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+                        <i class="fas fa-envelope"></i> Email Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & ML Enthusiast Section -->
+    <section id="ai-ml" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-brain"></i> AI & ML Enthusiast</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>I chose AI because I believe it's not just the future—it's the present. The intersection of medicine and artificial intelligence offers unprecedented opportunities to transform healthcare delivery and patient outcomes.</p>
+                
+                <h3>Education</h3>
+                <div class="detail-item">
+                    <h4>Diploma in Artificial Intelligence and Machine Learning</h4>
+                    <p>Indian Institute of Technology, Mandi</p>
+                    <a href="#" onclick="openCertificateModal('AI ML Diploma', 'IIT Mandi')">View Certificate</a>
+                </div>
+                
+                <h3>Current Projects</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>AI-Driven Diagnostic Tool</h4>
+                        <p>Machine learning algorithm to identify potential health issues from basic symptoms.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Medical Image Analysis</h4>
+                        <p>Using deep learning to detect abnormalities in medical imaging.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Predictive Healthcare Analytics</h4>
+                        <p>Data-driven approach to predict patient outcomes and treatment responses.</p>
+                    </div>
+                </div>
+                
+                <h3>Contact</h3>
+                <a href="mailto:AI@drvivektrivedi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none; margin-top: 1rem;">
+                    <i class="fas fa-envelope"></i> AI@drvivektrivedi.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrepreneur Section -->
+    <section id="entrepreneur" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-briefcase"></i> Entrepreneur</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>Entrepreneurship is about seeing possibilities where others see problems. As Thomas Edison said, "I have not failed. I've just found 10,000 ways that won't work."</p>
+                
+                <h3>Business Ventures</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Paperbud.org</h4>
+                        <p>Empowering researchers with professional thesis writing and research paper assistance.</p>
+                        <a href="mailto:Paperbud@drvivektrivedi.com">Contact: Paperbud@drvivektrivedi.com</a>
+                    </div>
+                    <div class="detail-item">
+                        <h4>RVT Digital Media</h4>
+                        <p>Comprehensive digital marketing solutions for businesses of all sizes.</p>
+                        <a href="mailto:RVTDigital@drvivektrivedi.com">Contact: RVTDigital@drvivektrivedi.com</a>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Agent365</h4>
+                        <p>Scaling businesses through AI agent automation and optimization.</p>
+                        <a href="mailto:Agent365@drvivektrivedi.com">Contact: Agent365@drvivektrivedi.com</a>
+                    </div>
+                    <div class="detail-item">
+                        <h4>TechSchool.in</h4>
+                        <p>Free technology and AI education in multiple regional languages.</p>
+                        <a href="mailto:TechSchool@drvivektrivedi.com">Contact: TechSchool@drvivektrivedi.com</a>
+                    </div>
+                    <div class="detail-item">
+                        <h4>MedAIDiagnostics.com</h4>
+                        <p>AI-powered disease diagnosis and personalized health recommendations.</p>
+                        <a href="mailto:MedAI@drvivektrivedi.com">Contact: MedAI@drvivektrivedi.com</a>
+                    </div>
+                </div>
+                
+                <h3>Business Inquiries</h3>
+                <a href="mailto:Business@drvivektrivedi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none; margin-top: 1rem;">
+                    <i class="fas fa-envelope"></i> Business@drvivektrivedi.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosopher Section -->
+    <section id="philosopher" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-lightbulb"></i> Philosopher</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>Philosophy isn't just an academic pursuit—it's how we live our lives. Everyone is a philosopher in their own way. Life is short, so live it 1000%.</p>
+                
+                <h3>Philosophical Influences</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Stoicism</h4>
+                        <p>The ancient Greek philosophy of personal ethics informed by logic, reflection, and concentration.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Hinduism</h4>
+                        <p>Eastern philosophical traditions focusing on dharma, karma, and the pursuit of moksha.</p>
+                    </div>
+                </div>
+                
+                <h3>Reading Recommendations</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Meditations</h4>
+                        <p>By Marcus Aurelius</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Man's Search for Meaning</h4>
+                        <p>By Viktor E. Frankl</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>The Bhagavad Gita</h4>
+                        <p>Hindu scripture</p>
+                    </div>
+                </div>
+                
+                <h3>Connect</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1rem;">
+                    <a href="https://www.goodreads.com/" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+                        <i class="fas fa-book"></i> GoodReads Profile
+                    </a>
+                    <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+                        <i class="fas fa-quote-left"></i> Blog & Quotes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Writer Section -->
+    <section id="writer" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-pen-fancy"></i> Writer</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>Words have the power to heal, inspire, and transform. Through my writing, I aim to share insights at the intersection of medicine, technology, and personal growth.</p>
+                
+                <h3>Books</h3>
+                <div class="detail-grid">
+                    <div class="detail-item" style="text-align: center;">
+                        <img src="/api/placeholder/150/200" alt="Book Cover" style="width: 100%; max-width: 150px; margin-bottom: 1rem;">
+                        <h4>Title of Book 1</h4>
+                        <p>Brief description of the book and its themes.</p>
+                    </div>
+                    <div class="detail-item" style="text-align: center;">
+                        <img src="/api/placeholder/150/200" alt="Book Cover" style="width: 100%; max-width: 150px; margin-bottom: 1rem;">
+                        <h4>Title of Book 2</h4>
+                        <p>Brief description of the book and its themes.</p>
+                    </div>
+                </div>
+                
+                <h3>Publications</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Medical Content Writing</h4>
+                        <p>Professional medical content writing experience on Fiverr.</p>
+                        <a href="#" target="_blank">View Profile</a>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Blog</h4>
+                        <p>Regular insights on medicine, technology, and personal development.</p>
+                        <a href="#" target="_blank">Read Blog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freelancer Section -->
+    <section id="freelancer" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-laptop"></i> Freelancer</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>I offer specialized services that combine my medical expertise with technology skills.</p>
+                
+                <h3>Services</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Medical Content Writing</h4>
+                        <p>Accurate, research-based medical content for websites, blogs, and publications.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>AI Agent Development</h4>
+                        <p>Custom AI assistants and agents tailored to your business needs.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Digital Marketing</h4>
+                        <p>Strategic digital marketing solutions for healthcare and tech businesses.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Video Production & Editing</h4>
+                        <p>Professional video content creation for educational and promotional purposes.</p>
+                    </div>
+                </div>
+                
+                <h3>Platforms</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 1rem 0 2rem 0;">
+                    <a href="https://www.fiverr.com/" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+                        <i class="fas fa-f"></i> Fiverr Profile
+                    </a>
+                    <a href="https://www.upwork.com/" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+                        <i class="fas fa-u"></i> Upwork Profile
+                    </a>
+                </div>
+                
+                <h3>Contact</h3>
+                <a href="mailto:Work@drvivektrivedi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none;">
+                    <i class="fas fa-envelope"></i> Work@drvivektrivedi.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anatomist Section -->
+    <section id="anatomist" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-user-md"></i> Anatomist</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>Anatomy is the foundation of medical knowledge. My passion for understanding the human body in detail drives my research and teaching.</p>
+                
+                <h3>Academic Background</h3>
+                <p>MD Anatomy (2022-2025) at Medical College Baroda</p>
+                <p>Dissertation: "Study of Dermatoglyphics in Coronary Artery Disease Patients"</p>
+                <p>Guide: Dr. Hina B. Rajput (Associate Professor, MD Anatomy)</p>
+                
+                <h3>Professional Experience</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Cadaver Dissection</h4>
+                        <p>Conducted 30+ cadaver dissections (brachial plexus, popliteal fossa, infratemporal fossa)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Embalming</h4>
+                        <p>Performed embalming for 30+ cadavers (logbook documented)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Teaching</h4>
+                        <p>Assisted UG/PG teaching: seminars, histology slide preparation, viva examinations</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Administration</h4>
+                        <p>Managed departmental schedules, attendance, and examination records</p>
+                    </div>
+                </div>
+                
+                <h3>Academic Contributions</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>Delivered 50+ seminars on topics like Bony Pelvis, Deep Cervical Fascia</li>
+                    <li>Conducted UG tutorials on Upper Limb, Lower Limb, Thorax, Abdomen Anatomy, Embryology, and Neuroanatomy</li>
+                    <li>Organized group discussions on Embalming Techniques and Surgical Anatomy</li>
+                </ul>
+                
+                <h3>Contact</h3>
+                <a href="mailto:Anatomy@drvivektrivedi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none; margin-top: 1rem;">
+                    <i class="fas fa-envelope"></i> Anatomy@drvivektrivedi.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pharmacovigilance Section -->
+    <section id="pharmacovigilance" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-pills"></i> Pharmacovigilance</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>Medication safety is crucial for patient wellbeing. My work in pharmacovigilance helps ensure treatments are both effective and safe.</p>
+                
+                <h3>Research Publications</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>First Author Publications</h4>
+                        <p>"Study of Morphological and Morphometric Parameters of Dry Scaphoid Bone in Mid Gujarat Population" (Journal of Indian Medical Association, 2024)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Upcoming Research</h4>
+                        <p>"Dermatoglyphics Patterns in Angiographically Proven Coronary Artery Disease Patients" (Journal Article, in preparation)</p>
+                    </div>
+                </div>
+                
+                <h3>Conference Presentations</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Oral Presentation</h4>
+                        <p>"Morphological Study of Diaphyseal Nutrient Foramina of First Metatarsal" at NATCON 69 - Global Congress of Anatomists, Gadag, Karnataka (8th-11th Dec 2022)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Poster Presentation</h4>
+                        <p>"Anatomical Study of Talar Articular Surface of Calcaneus" at FASE 2022 - Future of Anatomical Sciences Education, Online (Chennai) (22nd-23rd July 2022)</p>
+                    </div>
+                </div>
+                
+                <h3>Training</h3>
+                <p>Biomedical Research Training (2022)</p>
+                
+                <h3>Contact</h3>
+                <a href="mailto:Pharma@drvivektrivedi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none; margin-top: 1rem;">
+                    <i class="fas fa-envelope"></i> Pharma@drvivektrivedi.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Educator Section -->
+    <section id="health-educator" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-heartbeat"></i> Health Educator</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>Empowering individuals with health knowledge is my passion. True wellness comes from understanding your body and making informed choices.</p>
+                
+                <h3>Specialties</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Cellular Nourishment Therapy</h4>
+                        <p>Optimize your health at the cellular level with targeted nutrition strategies.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Weight Management</h4>
+                        <p>Evidence-based weight loss approaches that focus on sustainable lifestyle changes.</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Exercise Coaching</h4>
+                        <p>Personalized fitness plans that integrate medical knowledge for optimal results.</p>
+                    </div>
+                </div>
+                
+                <h3>Online Courses</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Course 1</h4>
+                        <p>Description of the course and what students will learn.</p>
+                        <a href="https://youtube.com/" target="_blank">Watch on YouTube</a>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Course 2</h4>
+                        <p>Description of the course and what students will learn.</p>
+                        <a href="https://youtube.com/" target="_blank">Watch on YouTube</a>
+                    </div>
+                </div>
+                
+                <h3>Recommended Supplements</h3>
+                <div class="detail-grid">
+                    <div class="detail-item">
+                        <h4>Coenzyme Q10</h4>
+                        <p>Supports heart health and cellular energy production.</p>
+                        <a href="https://amazon.com/" target="_blank">Buy on Amazon</a>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Multivitamins</h4>
+                        <p>Comprehensive daily nutritional support.</p>
+                        <a href="https://amazon.com/" target="_blank">Buy on Amazon</a>
+                    </div>
+                </div>
+                
+                <h3>Contact</h3>
+                <a href="mailto:HealthEducation@drvivektrivedi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none; margin-top: 1rem;">
+                    <i class="fas fa-envelope"></i> HealthEducation@drvivektrivedi.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Youtuber Section -->
+    <section id="youtuber" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fab fa-youtube"></i> Youtuber</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>Inspired by Casey Neistat's authentic storytelling and Christopher Nolan's cinematic vision, I create content that educates, entertains, and inspires.</p>
+                
+                <h3>Current Channels</h3>
+                <div class="detail-grid">
+                    <div class="detail-item" style="text-align: center;">
+                        <img src="/api/placeholder/300/180" alt="YouTube Channel" style="width: 100%; margin-bottom: 1rem; border-radius: 0.25rem;">
+                        <h4>Channel 1</h4>
+                        <p>Brief description of the channel and its content.</p>
+                        <a href="https://youtube.com/" target="_blank">Subscribe</a>
+                    </div>
+                    <div class="detail-item" style="text-align: center;">
+                        <img src="/api/placeholder/300/180" alt="YouTube Channel" style="width: 100%; margin-bottom: 1rem; border-radius: 0.25rem;">
+                        <h4>Channel 2</h4>
+                        <p>Brief description of the channel and its content.</p>
+                        <a href="https://youtube.com/" target="_blank">Subscribe</a>
+                    </div>
+                    <div class="detail-item" style="text-align: center;">
+                        <img src="/api/placeholder/300/180" alt="YouTube Channel" style="width: 100%; margin-bottom: 1rem; border-radius: 0.25rem;">
+                        <h4>Channel 3</h4>
+                        <p>Brief description of the channel and its content.</p>
+                        <a href="https://youtube.com/" target="_blank">Subscribe</a>
+                    </div>
+                    <div class="detail-item" style="text-align: center;">
+                        <img src="/api/placeholder/300/180" alt="YouTube Channel" style="width: 100%; margin-bottom: 1rem; border-radius: 0.25rem;">
+                        <h4>Channel 4</h4>
+                        <p>Brief description of the channel and its content.</p>
+                        <a href="https://youtube.com/" target="_blank">Subscribe</a>
+                    </div>
+                    <div class="detail-item" style="text-align: center;">
+                        <img src="/api/placeholder/300/180" alt="YouTube Channel" style="width: 100%; margin-bottom: 1rem; border-radius: 0.25rem;">
+                        <h4>Channel 5</h4>
+                        <p>Brief description of the channel and its content.</p>
+                        <a href="https://youtube.com/" target="_blank">Subscribe</a>
+                    </div>
+                </div>
+                
+                <h3>Upcoming Channels</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>Medical Education Channel</li>
+                    <li>AI & Technology Updates</li>
+                    <li>Health & Wellness Tips</li>
+                    <li>Travel Vlog</li>
+                </ul>
+                
+                <h3>Contact</h3>
+                <a href="mailto:Youtube@drvivektrivedi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: hsl(var(--primary)); color: white; padding: 0.75rem 1rem; border-radius: 0.25rem; text-decoration: none; margin-top: 1rem;">
+                    <i class="fas fa-envelope"></i> Youtube@drvivektrivedi.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Goals Section -->
+    <section id="goals" class="detail-section">
+        <div class="detail-container">
+            <div class="detail-header">
+                <h2 class="detail-title"><i class="fas fa-flag"></i> My Goals</h2>
+                <button class="close-btn" onclick="closeDetailSection()">&times;</button>
+            </div>
+            <div class="detail-content">
+                <p>A life without goals is like a boat without a rudder. Here are the 100 destinations on my life's journey.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 2rem;">
+                    <!-- Sample goals - You would replace these with actual goals -->
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #1: Publish a medical textbook</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #2: Start a healthcare tech company</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #3: Teach at a leading medical university</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #4: Develop an AI medical diagnostic tool</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #5: Run a marathon</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #6: Learn a new language</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #7: Write a bestselling book</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #8: Create a YouTube channel with 100K subscribers</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #9: Travel to 50 countries</div>
+                    <div style="background-color: hsl(var(--primary)); color: white; padding: 15px; border-radius: 8px;">Goal #10: Build a healthcare foundation</div>
+                    <!-- Add more goals as needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Request Modal -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Request Certificate</h2>
+                <button class="modal-close" onclick="closeCertificateModal()">&times;</button>
+            </div>
+            <form id="certificateForm">
+                <input type="hidden" id="certificateName" value="">
+                <div class="form-group">
+                    <label for="requestName">Your Name</label>
+                    <input type="text" id="requestName" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="requestEmail">Your Email</label>
+                    <input type="email" id="requestEmail" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="requestReason">Reason for Request</label>
+                    <textarea id="requestReason" class="form-control" placeholder="Please explain why you need this certificate" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Open detail section
+        function openDetailSection(sectionId) {
+            document.getElementById(sectionId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close detail section
+        function closeDetailSection() {
+            document.querySelectorAll('.detail-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.body.style.overflow = 'auto';
+        }
+
+        // Certificate Modal
+        function openCertificateModal(certificateName) {
+            document.getElementById('certificateName').value = certificateName;
+            document.getElementById('certificateModal').classList.add('active');
+        }
+
+        function closeCertificateModal() {
+            document.getElementById('certificateModal').classList.remove('active');
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const reason = document.getElementById('reason').value;
+            const message = document.getElementById('message').value;
+            
+            // Determine which email to send to based on the reason
+            let targetEmail = 'contact@drvivektrivedi.com';
+            
+            switch(reason) {
+                case 'Physician':
+                    targetEmail = 'Consult@drvivektrivedi.com';
+                    break;
+                case 'AI & ML':
+                    targetEmail = 'AI@drvivektrivedi.com';
+                    break;
+                case 'Entrepreneur':
+                    targetEmail = 'Business@drvivektrivedi.com';
+                    break;
+                case 'Freelancer':
+                    targetEmail = 'Work@drvivektrivedi.com';
+                    break;
+                case 'Anatomist':
+                    targetEmail = 'Anatomy@drvivektrivedi.com';
+                    break;
+                case 'Pharmacovigilance':
+                    targetEmail = 'Pharma@drvivektrivedi.com';
+                    break;
+                case 'Health Educator':
+                    targetEmail = 'HealthEducation@drvivektrivedi.com';
+                    break;
+                case 'Youtuber':
+                    targetEmail = 'Youtube@drvivektrivedi.com';
+                    break;
+                default:
+                    targetEmail = 'contact@drvivektrivedi.com';
+            }
+            
+            // In a real implementation, this would send the email
+            alert(`Thank you for your message! I'll get back to you soon.\n\nYour message will be sent to: ${targetEmail}`);
+            
+            // Reset the form
+            this.reset();
+        });
+
+        document.getElementById('certificateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const certificateName = document.getElementById('certificateName').value;
+            const name = document.getElementById('requestName').value;
+            const email = document.getElementById('requestEmail').value;
+            const reason = document.getElementById('requestReason').value;
+            
+            // In a real implementation, this would send the certificate request
+            alert(`Thank you for your request for the ${certificateName} certificate. I'll send it to your email: ${email} shortly.`);
+            
+            // Close the modal and reset the form
+            closeCertificateModal();
+            this.reset();
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('certificateModal');
+            if (event.target === modal) {
+                closeCertificateModal();
+            }
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
